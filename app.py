@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-df = pd.read_csv('prototype.csv')
+df = pd.read_csv('Prototype.csv')
 
 def get_likely_syms(df,sym_list):
     syms = []

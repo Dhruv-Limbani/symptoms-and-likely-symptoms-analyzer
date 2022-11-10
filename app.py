@@ -41,9 +41,10 @@ symptoms = st.multiselect("Please tell us what you feel:",lst)
 symptoms = [x.replace(" ","_") for x in symptoms]
 if len(symptoms):
     like_syms, s = get_likely_syms(df,symptoms)
-    s = [x.replace("_"," ") for x in s]
-    l = st.multiselect("Have you been feeling any of these? If YES please select:",s)
-    l = [x.replace(" ","_") for x in l]
-    symptoms = symptoms + l
+    if len(s):
+        s = [x.replace("_"," ") for x in s]
+        l = st.multiselect("Have you been feeling any of these? If YES please select:",s)
+        l = [x.replace(" ","_") for x in l]
+        symptoms = symptoms + l
 st.write(symptoms)
 

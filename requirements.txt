@@ -2,3 +2,4 @@ streamlit==1.12.2
 sklearn
 pandas
 numpy
+pickle

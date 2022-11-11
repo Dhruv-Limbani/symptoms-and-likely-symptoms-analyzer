@@ -61,6 +61,6 @@ if len(symptoms):
     
     submit = st.button('Diagnose')
 
-if submit:
-    st.success(predict_disease(symptoms))
+    if submit:
+        st.success(predict_disease(symptoms))
 

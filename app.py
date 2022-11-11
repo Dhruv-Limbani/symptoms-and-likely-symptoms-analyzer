@@ -1,6 +1,18 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import pickle
+
+with open('model','rb') as f:
+    model,diseases,sym_attrs = pickle.load(f)
+
+def predict_disease(symptoms):
+    sym_indices = [np.where(sym_attrs==sym)[0][0] for sym in symptoms]
+    x = np.zeros(len(sym_attrs))
+    for idx in sym_indices:
+        x[idx]=1
+    pred = model.predict([x])[0]
+    return diseases[pred]
 
 df = pd.read_csv('Prototype.csv')
 
@@ -46,5 +58,9 @@ if len(symptoms):
         l = st.multiselect("Have you been feeling any of these? If YES please select:",s)
         l = [x.replace(" ","_") for x in l]
         symptoms = symptoms + l
-st.write(symptoms)
+
+submit = st.button('Diagnose')
+
+if submit:
+    st.success(predict_disease(symptoms))
 

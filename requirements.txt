@@ -1,4 +1,2 @@
-sklearn
 streamlit==1.12.2
-numpy
-pandas
+sklearn

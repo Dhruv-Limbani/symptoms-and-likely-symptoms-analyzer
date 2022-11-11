@@ -1,8 +1,6 @@
 import streamlit as st
-import pandas as pd
 import numpy as np
 import pickle
-import sklearn
 
 with open('model','rb') as f:
     model,diseases,sym_attrs = pickle.load(f)

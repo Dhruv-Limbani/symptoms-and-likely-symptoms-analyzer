@@ -58,8 +58,8 @@ if len(symptoms):
         l = st.multiselect("Have you been feeling any of these? If YES please select:",s)
         l = [x.replace(" ","_") for x in l]
         symptoms = symptoms + l
-
-submit = st.button('Diagnose')
+    
+    submit = st.button('Diagnose')
 
 if submit:
     st.success(predict_disease(symptoms))
